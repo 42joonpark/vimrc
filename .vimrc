@@ -61,6 +61,9 @@ let g:airline_powerline_fonts=1
 let g:Powerline_symbols='unicode'
 let g:airline_theme='biogoo'
 
+let g:tagbar_left=1
+let g:tagbar_autofocus=1
+
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
