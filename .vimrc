@@ -41,6 +41,9 @@ Plug 'w0rp/ale'
 " gruvbox
 Plug 'morhetz/gruvbox'
 
+" delimitmat
+Plug 'raimondi/delimitmate'
+
 call plug#end()
 
 set background=dark
