@@ -1,11 +1,13 @@
 set encoding=utf-8
 set autoindent 
+set shiftwidth=4	" auto indent
+set tabstop=4
+set noexpandtab
 set cindent
 set nu
 set hlsearch		" highlight
-set	smartcase		" 검색 시 대소문자 구분 set ts=4			" Tab
+set smartcase		" 검색 시 대소문자 구분 set ts=4			" Tab
 set ruler			" show current cursor
-set shiftwidth=4	" auto indent
 set laststatus=2 	" 상태바 표시를 항상한다.
 set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
 set t_Co=256
@@ -43,6 +45,15 @@ Plug 'morhetz/gruvbox'
 
 " delimitmat
 Plug 'raimondi/delimitmate'
+
+" 
+Plug 'fatih/vim-go'
+
+" 
+Plug 'nsf/gocode'
+
+"42 header
+Plug 'pbondoer/vim-42header'
 
 call plug#end()
 
