@@ -65,7 +65,7 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 
 " Tagbar mapping
-nmap <F8> :TagbarToggle<CR>
+nmap <C-b> :TagbarToggle<CR>
 
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
@@ -77,6 +77,8 @@ let g:airline_theme='biogoo'
 
 let g:tagbar_left=1
 let g:tagbar_autofocus=1
+let g:tagbar_width=30
+let g:tagbar_autoclose=1
 
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
