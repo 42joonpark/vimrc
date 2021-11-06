@@ -16,6 +16,8 @@ set t_Co=256
 :let mapleader=','
 
 syntax enable
+filetype plugin indent on
+
 if has ("syntax")
 	syntax on
 	filetype on
@@ -94,6 +96,12 @@ let g:tagbar_autoclose=1
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+set completeopt=menu,menuone,preview,noselect,noinsert
+let g:ale_completion_enabled = 1
+let g:ale_linters = {
+\  'rust': ['analyzer'],
+\}
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
