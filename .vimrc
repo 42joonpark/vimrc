@@ -5,6 +5,7 @@ set tabstop=4
 set noexpandtab
 set cindent
 set nu
+set mouse=a
 set hlsearch		" highlight
 set smartcase		" 검색 시 대소문자 구분 set ts=4			" Tab
 set ruler			" show current cursor
@@ -17,6 +18,7 @@ set t_Co=256
 syntax enable
 if has ("syntax")
 	syntax on
+	filetype on
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -52,6 +54,9 @@ Plug 'fatih/vim-go'
 " 
 Plug 'nsf/gocode'
 
+" rust
+Plug 'rust-lang/rust.vim'
+
 "42 header
 Plug 'pbondoer/vim-42header'
 
@@ -63,22 +68,38 @@ colorscheme gruvbox
 " NERDTree mapping
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-j> :bprev<CR>
+nnoremap <C-k> :bnext<CR>
 
 " Tagbar mapping
-nmap <C-b> :TagbarToggle<CR>
+nmap <C-m> :TagbarToggle<CR>
 
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
 
+let g:syntastic_rust_checkers = ['rustc']
+
 let g:airline_powerline_fonts=1
 let g:Powerline_symbols='unicode'
 let g:airline_theme='biogoo'
+
+let NERDTreeQuitOnOpen=1
 
 let g:tagbar_left=1
 let g:tagbar_autofocus=1
 let g:tagbar_width=30
 let g:tagbar_autoclose=1
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let	g:syntastic_c_include_dirs = [ '/Users/joonpark/Desktop/push_swap/v4/includes' ]
 
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
