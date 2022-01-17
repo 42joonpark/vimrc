@@ -80,11 +80,11 @@ nmap <C-m> :TagbarToggle<CR>
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
 
-let g:syntastic_rust_checkers = ['rustc']
+let g:syntastic_rust_checkers = ['cargo']
 
 let g:airline_powerline_fonts=1
-let g:Powerline_symbols='unicode'
-let g:airline_theme='biogoo'
+" let g:airline_theme='biogoo'
+let g:airline_theme='powerlineish'
 
 let NERDTreeQuitOnOpen=1
 
@@ -99,9 +99,12 @@ set statusline+=%*
 
 set completeopt=menu,menuone,preview,noselect,noinsert
 let g:ale_completion_enabled = 1
+let g:ale_rust_rls_toolchain = 'stable'
+let g:ale_rust_analyzer_executable = 1
 let g:ale_linters = {
 \  'rust': ['analyzer'],
 \}
+let g:ale_linters.rust = ['cargo', 'rls']
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
